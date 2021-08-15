@@ -16,7 +16,9 @@ def index():
 def button_pressed():
     global pressed
     pressed = True
-    return jsonify({"btn_press": "saved"})
+    response = jsonify({"btn_press": "saved"})
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
     
 @app.route("/check") 
 def check():
